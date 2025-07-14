@@ -1,0 +1,38 @@
+[
+  {
+    "test_id": "support-agent-v1.2-password-reset",
+    "prompt_id": "rag_support_synth",
+    "prompt_name": "support-agent-v1",
+    "version": "v1.2.0",
+    "input": {
+      "question": "How do I reset my password?",
+      "context": "To reset your password, go to the settings page and click 'Reset Password'."
+    },
+    "expected_output": "To reset your password, go to the settings page and click 'Reset Password'.",
+    "test_type": "regression"
+  },
+  {
+    "test_id": "support-agent-v1.2-data-deletion",
+    "prompt_id": "rag_support_synth",
+    "prompt_name": "support-agent-v1",
+    "version": "v1.2.0",
+    "input": {
+      "question": "How can I delete my account data?",
+      "context": "You can delete your account data by navigating to the Privacy tab in your account settings and selecting 'Delete Data'."
+    },
+    "expected_output": "You can delete your account data by navigating to the Privacy tab in your account settings.",
+    "test_type": "regression"
+  },
+  {
+    "test_id": "support-agent-v1.2-cost-warning",
+    "prompt_id": "rag_support_synth",
+    "prompt_name": "support-agent-v1",
+    "version": "v1.2.0",
+    "input": {
+      "question": "Why did I get charged extra this month?",
+      "context": "Charges may vary depending on plan usage. Check your billing history for details."
+    },
+    "expected_output": "Charges may vary depending on plan usage. Check your billing history for details.",
+    "test_type": "regression"
+  }
+]

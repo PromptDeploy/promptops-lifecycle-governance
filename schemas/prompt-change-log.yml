@@ -1,0 +1,46 @@
+change_log_schema:
+  $schema: https://json-schema.org/draft/2020-12/schema
+  title: Prompt Change Log
+  type: object
+  required:
+    - prompt_id
+    - version
+    - changes
+    - timestamp
+  properties:
+    prompt_id:
+      type: string
+      description: ID of the prompt this change belongs to
+    version:
+      type: string
+      description: Version of the prompt associated with the change log
+    timestamp:
+      type: string
+      format: date-time
+      description: When the change was logged
+    author:
+      type: string
+      description: Who made the change
+      nullable: true
+    changes:
+      type: array
+      items:
+        type: object
+        required:
+          - field
+          - old_value
+          - new_value
+        properties:
+          field:
+            type: string
+            description: Field that was changed
+          old_value:
+            type: string
+            description: Previous value
+          new_value:
+            type: string
+            description: Updated value
+    rationale:
+      type: string
+      description: Optional notes explaining the intent behind the change
+      nullable: true

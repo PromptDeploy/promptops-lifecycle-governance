@@ -1,0 +1,47 @@
+# Promptfoo config for running reproducible evaluations on PromptOps artifact prompts.
+
+description: >
+  Evaluation config for RAG and support-agent prompts.
+  Includes hallucination, faithfulness, and cost control metrics.
+
+prompts:
+  - id: support-agent-v1
+    file: ../examples/support-agent-v1.txt
+  - id: rag-pipeline-fallback-v2
+    file: ../examples/rag-pipeline-fallback.txt
+
+providers:
+  - id: openai:gpt-4
+    config:
+      temperature: 0
+      max_tokens: 512
+  - id: anthropic:claude-3
+    config:
+      temperature: 0
+      max_tokens: 512
+
+tests:
+  file: ./test-cases.json
+
+metrics:
+  - accuracy
+  - toxicity
+  - cost
+
+plugins:
+  - ./cost-checks.yml
+
+output:
+  format: markdown
+  save: ./evals/eval-report.md
+
+options:
+  show_diff: true
+  hide_input: false
+
+thresholds:
+  # Minimum average score across all tests
+  minScore: 0.85
+
+  # Percentage of tests that must pass (0.0 to 1.0)
+  minPassRate: 0.90

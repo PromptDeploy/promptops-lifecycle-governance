@@ -1,0 +1,38 @@
+# Prompt Evaluation Gate CI
+# Blocks merges if evaluation results fail governance thresholds.
+
+name: Prompt Evaluation Gate
+
+on:
+  pull_request:
+    paths:
+      - "evals/**"
+      - "schemas/**"
+      - "prompts/**"
+      - "logs/**"
+
+jobs:
+  eval-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Promptfoo
+        run: |
+          pip install promptfoo
+
+      - name: Run Promptfoo Eval
+        run: |
+          promptfoo evaluate evals/eval-config.promptfoo.yml \
+            --output json \
+            --output-file evals/.ci-eval-results.json
+
+      - name: Check Eval Results
+        run: |
+          python scripts/check_eval_thresholds.py evals/.ci-eval-results.json

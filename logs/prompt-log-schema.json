@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prompt Execution Log Schema",
+  "description": "Standard trace log format for prompt runs. Used for telemetry, cost tracking, and debugging.",
+  "type": "object",
+  "required": [
+    "prompt_id",
+    "version_hash",
+    "timestamp",
+    "trace_id",
+    "model",
+    "tokens_input",
+    "tokens_output",
+    "cost_usd",
+    "inputs",
+    "outputs"
+  ],
+  "properties": {
+    "prompt_id": {
+      "type": "string",
+      "description": "Unique ID or name of the prompt being executed"
+    },
+    "version_hash": {
+      "type": "string",
+      "description": "Hash of the prompt content (e.g. SHA256) for immutability and diff tracking"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO8601 timestamp of prompt execution"
+    },
+    "trace_id": {
+      "type": "string",
+      "description": "Unique identifier for the full execution trace (spans agent chains, retries, etc.)"
+    },
+    "model": {
+      "type": "string",
+      "description": "LLM used for this prompt (e.g. gpt-4, claude-3, mixtral)"
+    },
+    "tokens_input": {
+      "type": "integer",
+      "description": "Number of tokens in the prompt input"
+    },
+    "tokens_output": {
+      "type": "integer",
+      "description": "Number of tokens in the model output"
+    },
+    "cost_usd": {
+      "type": "number",
+      "description": "Estimated cost in USD for this prompt run (tokens × rate)"
+    },
+    "inputs": {
+      "type": "object",
+      "description": "Object representing the structured prompt input fields"
+    },
+    "retrieved_docs": {
+      "type": "array",
+      "description": "Optional array of RAG documents retrieved before generation",
+      "items": {
+        "type": "string"
+      },
+      "nullable": true
+    },
+    "outputs": {
+      "type": "object",
+      "description": "Object containing raw model output, possibly with metadata"
+    },
+    "eval_results": {
+      "type": "object",
+      "description": "Optional evaluation results (pass/fail, score, labels)",
+      "nullable": true,
+      "properties": {
+        "pass": { "type": "boolean" },
+        "score": { "type": "number", "nullable": true },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "nullable": true
+        },
+        "criteria": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "nullable": true
+        }
+      }
+    },
+    "duration_ms": {
+      "type": "integer",
+      "description": "Optional model response time in milliseconds",
+      "nullable": true
+    },
+    "run_id": {
+      "type": "string",
+      "description": "Optional identifier used for linking to frontend observability dashboards",
+      "nullable": true
+    }
+  }
+}

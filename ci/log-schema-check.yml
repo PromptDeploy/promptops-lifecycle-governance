@@ -1,0 +1,33 @@
+# Log Schema Validator
+# Validates that sample logs conform to prompt-log-schema.json
+
+name: Log Schema Compliance
+
+on:
+  push:
+    paths:
+      - "logs/**"
+      - "ci/log-schema-check.yml"
+
+jobs:
+  log-schema-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install JSON schema validator
+        run: |
+          pip install jsonschema
+
+      - name: Run schema check
+        run: |
+          jsonschema \
+            --instance logs/log-sample.output.json \
+            --schema logs/prompt-log-schema.json

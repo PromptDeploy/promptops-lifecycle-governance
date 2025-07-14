@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PromptOps Agent Log Schema v2",
+  "description": "Supports nested steps for agent-based prompt traces",
+  "type": "object",
+  "required": [
+    "prompt_id",
+    "timestamp",
+    "model",
+    "agent_trace"
+  ],
+  "properties": {
+    "prompt_id": {
+      "type": "string",
+      "description": "Unique ID of the evaluated prompt"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "model": {
+      "type": "string",
+      "description": "LLM model used"
+    },
+    "agent_trace": {
+      "type": "object",
+      "required": [
+        "steps"
+      ],
+      "properties": {
+        "steps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "step_number",
+              "tool_call",
+              "observation",
+              "reasoning"
+            ],
+            "properties": {
+              "step_number": {
+                "type": "integer"
+              },
+              "tool_call": {
+                "type": "string",
+                "description": "Tool used by agent"
+              },
+              "observation": {
+                "type": "string",
+                "description": "Tool output or result"
+              },
+              "reasoning": {
+                "type": "string",
+                "description": "Why this tool was selected or what was concluded"
+              },
+              "output_tokens": {
+                "type": "integer",
+                "description": "LLM tokens for this step"
+              },
+              "cost_usd": {
+                "type": "number",
+                "description": "Optional cost tracking"
+              }
+            }
+          }
+        },
+        "final_output": {
+          "type": "string"
+        },
+        "total_cost_usd": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

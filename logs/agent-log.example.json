@@ -1,0 +1,27 @@
+{
+  "prompt_id": "support-summary-agent-v1",
+  "timestamp": "2025-07-10T14:03:00Z",
+  "model": "anthropic:claude-3-opus",
+  "agent_trace": {
+    "steps": [
+      {
+        "step_number": 1,
+        "tool_call": "search_docs",
+        "observation": "Found 3 support tickets related to user login failures.",
+        "reasoning": "Needed historical context to understand if this is a recurring issue.",
+        "output_tokens": 220,
+        "cost_usd": 0.0042
+      },
+      {
+        "step_number": 2,
+        "tool_call": "summarize",
+        "observation": "User reports intermittent login failures. Possible cookie issue.",
+        "reasoning": "Synthesized relevant ticket data into a short summary.",
+        "output_tokens": 110,
+        "cost_usd": 0.0021
+      }
+    ],
+    "final_output": "User intermittently unable to log in \u2014 similar to past cookie/session expiration bugs. Recommend re-checking session config.",
+    "total_cost_usd": 0.0063
+  }
+}

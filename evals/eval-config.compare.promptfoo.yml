@@ -1,0 +1,15 @@
+
+name: promptops-claude-vs-gpt
+models:
+  - anthropic:claude-3-opus
+  - openai:gpt-4o
+tests:
+  - path: evals/test-cases.variant.json
+assertions:
+  - type: not_empty
+  - type: includes
+    value: User
+  - type: metadata
+    key: cost_usd
+    operator: <=
+    value: 0.01

@@ -1,0 +1,11 @@
+name: promptops-rag-fallback-check
+models:
+  - openai:gpt-4o
+  - anthropic:claude-3-opus
+tests:
+  - path: evals/test-cases.rag.json
+assertions:
+  - type: includes
+    value: information
+  - type: not_includes
+    value: hallucinated

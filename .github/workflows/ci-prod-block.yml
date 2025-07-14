@@ -1,0 +1,30 @@
+name: 🛑 Block Unapproved Prompts to Prod
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-prod-prompts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Parse prompt schema and block unapproved prod
+        run: |
+          echo "Checking for unapproved prod prompts..."
+          FAILED=0
+          for file in $(find schemas/ -name "*.yml"); do
+            ENV=$(yq '.environment' "$file")
+            APPROVED=$(yq '.approval_status' "$file")
+            if [ "$ENV" = "prod" ] && [ "$APPROVED" != "approved" ]; then
+              echo "❌ $file is marked as prod but not approved!"
+              FAILED=1
+            fi
+          done
+          if [ $FAILED -eq 1 ]; then
+            echo "❌ CI failed: All prod prompts must be approved"
+            exit 1
+          fi

@@ -1,0 +1,14 @@
+
+prompt_id: support-summary-v4
+description: Summarizes Zendesk tickets into 2-sentence summaries for L3 engineers
+model: anthropic:claude-3-opus
+environment: prod
+approval_status: approved
+approved_by: team-lead@example.com
+approval_date: 2025-07-10
+eval_score: 0.92
+eval_pass_rate: 1.00
+change_log:
+  - date: 2025-07-08
+    author: dev@example.com
+    change: Increased clarity by simplifying user complaint extraction

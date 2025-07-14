@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+.env
+.venv
+pip-wheel-metadata/
+*.log
+
+# Jupyter (if added later)
+.ipynb_checkpoints
+
+# MacOS
+.DS_Store
+
+# VSCode / IDEs
+.vscode/
+.idea/
+
+# Promptfoo (eval cache/output)
+.promptfoo/
+promptfoo-results/
+
+# Logs and generated outputs
+*.output.json
+*.cache
+*.tmp
+*.log
+
+# Test results and coverage
+.pytest_cache/
+coverage.*
+htmlcov/
+test-results/
+
+# CI and secrets
+*.pem
+*.key
+*.env.local
+secrets.yaml
+
+# Artifacts
+*.zip
+*.tar.gz
+*.tgz
+*.bak

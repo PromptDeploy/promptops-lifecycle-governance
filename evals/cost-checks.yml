@@ -1,0 +1,14 @@
+# Promptfoo plugin: Token usage + cost governance rules
+# Part of PromptOps Lifecycle Governance Artifact
+
+id: token-cost-checks
+type: plugin
+plugin: cost
+config:
+  model_token_costs:
+    openai:gpt-4: 0.00006 # Cost per token in USD
+    anthropic:claude-3: 0.00008
+  max_tokens: 1500 # Soft cap: expected prompt + completion tokens
+  warn_above: 1600 # Warn if token count exceeds this
+  fail_above: 2000 # Fail if token count exceeds this
+  show_token_usage: true

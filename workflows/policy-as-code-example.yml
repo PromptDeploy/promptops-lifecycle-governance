@@ -1,0 +1,49 @@
+# Policy-as-Code: Prompt Promotion Ruleset
+# Enforces governance checks before allowing promotion to production
+
+# ❗️This is a reference scaffold. Teams can adapt this
+# into GitHub Actions, Open Policy Agent (OPA), LangSmith hooks, or CI pipelines.
+
+policy:
+  id: promptops-promotion-policy-v1
+  description: >
+    Enforce prompt governance rules before allowing promotion to production.
+    Includes eval results, versioning checks, approval status, and audit log presence.
+
+rules:
+  - name: must_have_valid_version_schema
+    description: "Prompt must conform to version schema (semver, hash, env)"
+    file: schemas/prompt-version-schema.yml
+    required_fields:
+      - version
+      - hash
+      - environment
+    validation: true
+
+  - name: must_pass_eval_gate
+    description: "Prompt must pass all registered Promptfoo evals"
+    eval_results_file: evals/test-cases.json
+    condition: pass_rate >= 0.95
+
+  - name: must_have_audit_log_entry
+    description: "Prompt must be linked to audit entry"
+    file: audit/artifact-audit-log.md
+    requires_entry: true
+
+  - name: must_be_approved_by_human
+    description: "Must have human signoff before prod promotion"
+    approval_file: schemas/prompt-card.example.yml
+    approval_field: approved_by
+    condition: not_empty
+
+  - name: cannot_be_deprecated
+    description: "Prompt marked as deprecated cannot be promoted"
+    file: schemas/prompt-version-schema.yml
+    field: deprecated
+    condition: false
+
+actions:
+  on_fail:
+    - block_promotion: true
+    - log_violation: true
+    - notify: governance_team@promptops.dev

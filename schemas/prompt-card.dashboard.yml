@@ -1,0 +1,27 @@
+
+prompt_id: support-summary-v4
+title: Support Ticket Summarizer
+description: Turns messy support tickets into crisp 2-sentence summaries for L3 engineers
+owner: ai-lead@example.com
+tags:
+  - summarization
+  - support
+  - production
+  - claude
+status: approved
+environment: prod
+model: anthropic:claude-3-opus
+created_at: 2025-07-01
+last_updated: 2025-07-10
+approved_by: team-lead@example.com
+approval_date: 2025-07-10
+usage_count: 3429
+avg_eval_score: 0.91
+pass_rate: 0.97
+cost_per_call: $0.008
+drift_detected: false
+eval_config: evals/eval-config.variant.promptfoo.yml
+log_format: schemas/log-schema-v2.json
+notes: >-
+  This version reduced hallucinations by simplifying ticket parsing.
+  Future improvement: Add special handling for login-related issues.
