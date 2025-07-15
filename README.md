@@ -1,5 +1,7 @@
 # PromptOps Lifecycle Governance
 
+> ⚠️ This repo is actively under development. Docs in progress - I’m writing walkthroughs for this artifact
+
 Governance scaffolding for prompt versioning, eval gating, rollback flows, and observability — built for SaaS SDK teams deploying AI-native systems.
 
 ## Why This Exists
@@ -16,8 +18,6 @@ This repo installs a governance scaffold into your AI pipeline to help you:
 
 Think of it as “Terraform for Prompts” — declarative, reproducible, and safe to scale.
 
----
-
 ## Who This Is For
 
 This governance scaffold is built for:
@@ -26,8 +26,6 @@ This governance scaffold is built for:
 - **Infra engineers** building LangChain-style frameworks, agents, or eval layers
 - **LLM platform teams** integrating prompt pipelines into real workflows
 - **Enterprise AI governance teams** enforcing prompt safety and reproducibility
-
----
 
 ## What’s Inside
 
@@ -44,8 +42,6 @@ This governance scaffold is built for:
 | `scripts/`            | CLI runner, prompt card dashboard generator                     |
 | `tests/`              | Regression scenarios for different prompt types                 |
 | `docs/`               | Developer overview and walkthroughs                             |
-
----
 
 ## Quickstart
 
@@ -64,8 +60,6 @@ Or run standalone:
 python scripts/prompt-eval-runner.py         # Non-strict preview mode
 python scripts/prompt-eval-runner.py --strict  # Strict mode (CI-style)
 ```
-
----
 
 ## Prompt Eval Scenarios
 
@@ -97,8 +91,6 @@ promptfoo test --config evals/eval-config.rag.promptfoo.yml
 
 📄 Sample report: [`evals/eval-report.rag.md`](evals/eval-report.rag.md)
 
----
-
 ## Prompt Metadata & Dashboards
 
 Your canonical prompt definition lives in:
@@ -114,8 +106,6 @@ python scripts/generate-dashboard-card.py
 
 > Syncs team-readable view for PMs, Notion, or Slack dashboards.
 
----
-
 ## Governance Features
 
 - Prompt version schema + changelog tracking
@@ -125,8 +115,6 @@ python scripts/generate-dashboard-card.py
 - Structured cost logs with OpenTelemetry-style schema
 - Policy-as-code examples for CI, HITL, approval gating
 - Audit log templates and OWASP LLM security mapping
-
----
 
 ## Minimal Working Lifecycle Example
 
@@ -142,8 +130,6 @@ Track the full lifecycle of `support-agent-v1`:
 | Dashboard View | `schemas/prompt-card.dashboard.yml`                                |
 | RAG Behavior   | `evals/test-cases.rag.json`, `evals/eval-config.rag.promptfoo.yml` |
 | Eval Report    | `evals/eval-report.rag.md`                                         |
-
----
 
 ## Key Make Commands
 
@@ -161,32 +147,37 @@ make format         # Format Python/YAML/JSON files (optional)
 make lint           # (Optional) Run schema linter or CI sanity checks
 ```
 
----
+## 📜 License & Remixing
 
-## 📜 License & Reuse
+This repo is built for reuse. You are encouraged to:
 
-MIT License for non-commercial internal use.
-
-You may:
-
-- Use inside SDKs, R&D pipelines, and demos
-- Remix schemas, scripts, and tests
+- Use it inside SDKs, R&D pipelines, or internal demos
+- Remix schemas, scripts, tests, or CI flows
 - Teach or present this framework with attribution
+- Fork the repo — and send PRs if you extend it!
 
-Contact for commercial licensing:
-📧 kappainnovationllc@gmail.com  
-🌐 [LinkedIn](https://linkedin.com/in/houchia)  
-📰 [Newsletter](https://prompt-deploy.beehiiv.com/)
+License: MIT for internal and educational use.
 
----
+Commercial licensing is available for SDKs, cloud platforms, and enterprise teams.
 
-## 👨‍💻 Author
+[📧 kappainnovationllc@gmail.com](mailto:kappainnovationllc@gmail.com)
 
-Built by Hou Chia  
+## Author
+
+Built by a solo engineer learning the full governance stack — writing docs, running tests, and evolving this artifact in public.
 → [linkedin.com/in/houchia](https://linkedin.com/in/houchia)  
 → [prompt-deploy.beehiiv.com](https://prompt-deploy.beehiiv.com)
 
----
+If this helps your team, I'd love to hear from you.
+
+## Inspirations & Related Work
+
+This artifact draws influence from:
+
+- OpenTelemetry (for traceability)
+- Promptfoo (for eval pipelines)
+- Terraform (for declarative governance)
+- OWASP LLM Top 10 (for risk coverage)
 
 ## Final Notes
 
