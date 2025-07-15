@@ -14,7 +14,7 @@
 - [ ] Logging or audit scaffolds (`logs/`, `audit/`)
 - [ ] Documentation, guides, or examples (`docs/`, `examples/`)
 - [ ] Scripts or dev tools (`scripts/`)
-- [ ] Other: \_\_\_
+- [ ] Other: (specify)
 
 ## 🚨 Risk Level
 
