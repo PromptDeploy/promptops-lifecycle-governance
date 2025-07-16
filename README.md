@@ -147,6 +147,10 @@ make format         # Format Python/YAML/JSON files (optional)
 make lint           # (Optional) Run schema linter or CI sanity checks
 ```
 
+## PromptOps Documentation
+
+- [What Is PromptOps? A Practical Introduction](docs/intro-to-promptops.md)
+
 ## 📜 License & Remixing
 
 This repo is built for reuse. You are encouraged to:
