@@ -1,4 +1,4 @@
-# Org Maturity Ladder – PromptOps Lifecycle Adoption
+# Use the Org Maturity Ladder: Score Governance Readiness in Your Team
 
 This ladder defines the stages an organization typically moves through as it adopts the PromptOps Lifecycle Governance framework.
 

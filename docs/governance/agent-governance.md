@@ -1,4 +1,4 @@
-# Agent Governance Guide
+# PromptOps for Agent Chains: Version, Log, and Gate Every Role
 
 PromptOps introduces nested agent logging, making it possible to govern and debug multi-step reasoning flows from tools like LangChain, Claude, CrewAI, ReAct-style agents, and more.
 

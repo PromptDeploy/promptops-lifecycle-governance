@@ -16,16 +16,29 @@
 - [ ] Scripts or dev tools (`scripts/`)
 - [ ] Other: (specify)
 
-## 🚨 Risk Level
+## Prompt Impact
+
+If this PR updates a prompt:
+
+- [ ] Prompt card version updated (`schemas/prompt-card.*.yml`)
+- [ ] `prompt-change-log.yml` entry added
+- [ ] Related test cases added or updated (`evals/`)
+- [ ] Includes required HITL approval (`/workflows/HITL_Approval_Template.md`)
+
+## Risk Level
 
 - [ ] Low – doc-only or non-blocking change
 - [ ] Medium – affects non-critical pipelines or logic
 - [ ] High – changes prompt schema, CI gating, or eval behavior
 
-## 📂 Files Touched
+## Files Touched
 
 <!-- List major folders/files updated -->
 
-## 🔍 Review Notes
+## Review Notes
 
 <!-- Anything the reviewer should focus on? Backward compatibility? Risk level? -->
+
+---
+
+See [CONTRIBUTING.md](../CONTRIBUTING.md) for contribution standards and reviewer expectations.

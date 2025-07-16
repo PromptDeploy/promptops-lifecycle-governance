@@ -1,4 +1,4 @@
-# PromptOps Lifecycle Governance – Adoption Checklist
+# Adoption Checklist Audit: Track Governance Implementation Progress
 
 This checklist helps teams track their rollout progress of the PromptOps Lifecycle Governance framework.
 

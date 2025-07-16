@@ -1,4 +1,4 @@
-# PromptOps Cost Governance Dashboard
+# Cost Metrics Dashboard: Visualize Token Spend and Inference ROI
 
 Track token usage, cost risk thresholds, and monthly inference budget trends.
 
