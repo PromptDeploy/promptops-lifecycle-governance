@@ -1,4 +1,4 @@
-# Compliance & Standards Mapping
+# Compliance Mapping Guide: Link Features to Standards Like OWASP, SOC2, NIST
 
 This document maps core features of the PromptOps Lifecycle Governance artifact to emerging governance standards and buyer expectations. Use this table to demonstrate alignment with:
 

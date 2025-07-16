@@ -1,12 +1,14 @@
 # PromptOps Lifecycle Governance
 
-> ⚠️ This repo is actively under development. Docs in progress - I’m writing walkthroughs for this artifact
+**Status:** v0.1.0 · Docs in progress · MIT licensed
 
 Governance scaffolding for prompt versioning, eval gating, rollback flows, and observability — built for SaaS SDK teams deploying AI-native systems.
 
 ## Why This Exists
 
-LLM-powered products are fragile. Prompt drift, eval regressions, agent failures, hallucinations, cost spikes — these are real problems for teams.
+LLM-powered products are fragile.
+
+Prompt drift, eval regressions, agent failures, hallucinations, cost spikes — these are real problems.
 
 This repo installs a governance scaffold into your AI pipeline to help you:
 
@@ -16,32 +18,32 @@ This repo installs a governance scaffold into your AI pipeline to help you:
 - Mitigate multi-agent and RAG failures
 - Align with OWASP and OpenTelemetry standards
 
-Think of it as “Terraform for Prompts” — declarative, reproducible, and safe to scale.
+Think of it as **“Terraform for Prompts”** — declarative, reproducible, and safe to scale.
 
 ## Who This Is For
 
-This governance scaffold is built for:
+This governance scaffold is designed for:
 
-- **SaaS SDK PMs** managing developer-facing LLM tools
-- **Infra engineers** building LangChain-style frameworks, agents, or eval layers
-- **LLM platform teams** integrating prompt pipelines into real workflows
-- **Enterprise AI governance teams** enforcing prompt safety and reproducibility
+- **SaaS SDK PMs** — managing developer-facing LLM tools
+- **Infra engineers** — building LangChain-style frameworks, agents, or eval layers
+- **LLM platform teams** — integrating prompt pipelines into real workflows
+- **AI governance teams** — enforcing prompt safety, reproducibility, and audit trails
 
 ## What’s Inside
 
-| Layer                 | Description                                                     |
-| --------------------- | --------------------------------------------------------------- |
-| `schemas/`            | Prompt version schema, changelog format, prompt card metadata   |
-| `evals/`              | Promptfoo configs, test cases (core, variants, RAG, comparison) |
-| `logs/`               | Structured log formats, cost metrics schema                     |
-| `ci/`                 | Eval gates, production enforcement rules                        |
-| `workflows/`          | Promotion pipeline, rollback plan, approval templates           |
-| `examples/`           | OWASP mapping, prompt cards, agent verification examples        |
-| `integration-guides/` | LangChain, OpenAPI, Pinecone integration tips                   |
-| `audit/`              | Failure mode catalog, log formats, HITL audit views             |
-| `scripts/`            | CLI runner, prompt card dashboard generator                     |
-| `tests/`              | Regression scenarios for different prompt types                 |
-| `docs/`               | Developer overview and walkthroughs                             |
+| Layer                 | Description                                                      |
+| --------------------- | ---------------------------------------------------------------- |
+| `schemas/`            | Prompt version schema, changelogs, canonical metadata            |
+| `evals/`              | Promptfoo configs, test cases (core, variants, RAG, comparison)  |
+| `logs/`               | Structured logging, cost metrics schema, observability formats   |
+| `ci/`                 | Eval gates, production enforcement rules                         |
+| `workflows/`          | Promotion pipelines, rollback flow, HITL approval templates      |
+| `examples/`           | OWASP mapping, agent verification chains, lifecycle walkthroughs |
+| `integration-guides/` | LangChain, OpenAPI, Pinecone integration patterns                |
+| `audit/`              | Failure mode catalog, compliance mapping, audit trail templates  |
+| `scripts/`            | CLI runners, prompt card dashboard generators                    |
+| `tests/`              | Regression scenarios for various prompt behaviors                |
+| `docs/`               | Full walkthroughs and role-specific documentation                |
 
 ## Quickstart
 
@@ -57,142 +59,73 @@ make test  # Run governance eval with CI thresholds
 Or run standalone:
 
 ```bash
-python scripts/prompt-eval-runner.py         # Non-strict preview mode
-python scripts/prompt-eval-runner.py --strict  # Strict mode (CI-style)
+python scripts/prompt-eval-runner.py         # Preview mode
+python scripts/prompt-eval-runner.py --strict  # CI enforcement
 ```
 
-## Prompt Eval Scenarios
+## Walkthroughs & Docs
 
-### Standard Eval
+- [What Is PromptOps?](docs/getting-started/what-is-promptops.md)
+- [PromptOps FAQ](docs/getting-started/faqs.md)
+- [Developer Integration Guide](docs/implementation/dev-guide.md)
+- [Agent Governance Guide](docs/governance/agent-governance.md)
+- [Full Docs Index →](docs/index.md)
 
-```bash
-promptfoo test --config evals/eval-config.promptfoo.yml
-```
-
-### Variant Prompt Eval
-
-```bash
-promptfoo test --config evals/eval-config.variant.promptfoo.yml
-```
-
-### Claude vs GPT Comparison
-
-```bash
-promptfoo test --config evals/eval-config.compare.promptfoo.yml
-```
-
-### RAG Fallback Behavior
-
-```bash
-promptfoo test --config evals/eval-config.rag.promptfoo.yml
-```
-
-> Tests for hallucination, weak context, and fallback phrasing
-
-📄 Sample report: [`evals/eval-report.rag.md`](evals/eval-report.rag.md)
-
-## Prompt Metadata & Dashboards
-
-Your canonical prompt definition lives in:
-
-- `schemas/prompt-card.example.yml` – full prompt metadata
-- `schemas/prompt-card.dashboard.yml` – dashboard-friendly view
-
-### Generate dashboard YAML from canonical source:
-
-```bash
-python scripts/generate-dashboard-card.py
-```
-
-> Syncs team-readable view for PMs, Notion, or Slack dashboards.
-
-## Governance Features
-
-- Prompt version schema + changelog tracking
-- CI gate for eval regressions + schema violations
-- Eval pipelines for Claude, GPT, variants, RAG
-- Fallback logging for multi-agent + RAG failures
-- Structured cost logs with OpenTelemetry-style schema
-- Policy-as-code examples for CI, HITL, approval gating
-- Audit log templates and OWASP LLM security mapping
-
-## Minimal Working Lifecycle Example
-
-Track the full lifecycle of `support-agent-v1`:
-
-| Stage          | File                                                               |
-| -------------- | ------------------------------------------------------------------ |
-| Metadata       | `schemas/prompt-card.example.yml`                                  |
-| Version Tags   | `schemas/prompt-version.prod-approved.yml`                         |
-| Eval Config    | `evals/eval-config.promptfoo.yml`                                  |
-| CI Gate        | `ci/ci-prod-block.yml`                                             |
-| Logs & Output  | `logs/log-sample.output.json`, `logs/prompt-log-schema.json`       |
-| Dashboard View | `schemas/prompt-card.dashboard.yml`                                |
-| RAG Behavior   | `evals/test-cases.rag.json`, `evals/eval-config.rag.promptfoo.yml` |
-| Eval Report    | `evals/eval-report.rag.md`                                         |
+---
 
 ## Key Make Commands
 
-```bash
-make eval           # Run standard prompt evals (non-blocking)
-make test           # Run governance evals and save results (CI-style)
-make strict-eval    # Enforce CI thresholds on saved eval results
-make logs           # View sample output logs
+**Eval & Test**
 
-make inject-test    # Run prompt injection test cases for jailbreak coverage
-make rag-eval       # Evaluate RAG fallback behavior (empty/vague context)
+- `make eval` — Run prompt evals
+- `make test` — Run governance evals + CI checks
+- `make inject-test`, `make rag-eval` — Run edge-case eval suites
 
-make dashboard      # Generate dashboard-friendly prompt card view
-make format         # Format Python/YAML/JSON files (optional)
-make lint           # (Optional) Run schema linter or CI sanity checks
-```
+**Dashboards & Logs**
 
-## PromptOps Documentation
+- `make dashboard` — Generate PM-friendly dashboard YAML
+- `make logs` — View sample output logs
 
-- [What Is PromptOps? A Practical Introduction](docs/intro-to-promptops.md)
+**Tooling**
 
-## 📜 License & Remixing
+- `make format`, `make lint` — Optional formatting/linting
 
-This repo is built for reuse. You are encouraged to:
+## License & Remixing
 
-- Use it inside SDKs, R&D pipelines, or internal demos
-- Remix schemas, scripts, tests, or CI flows
-- Teach or present this framework with attribution
-- Fork the repo — and send PRs if you extend it!
+This repo is built for reuse.
 
-License: MIT for internal and educational use.
+You are encouraged to:
 
-Commercial licensing is available for SDKs, cloud platforms, and enterprise teams.
+- Integrate this scaffold into SDKs, infra stacks, or platform tools
+- Fork, remix, and extend evals, changelogs, CI gates, and audit tools
+- Use this as a governance baseline for internal or regulated deployments
 
-[📧 kappainnovationllc@gmail.com](mailto:kappainnovationllc@gmail.com)
+License: [MIT](./LICENSE.txt) (internal and educational use).
+Commercial licensing available for SDKs, platform integrations, and enterprise systems.
+
+Contact: [kappainnovationllc@gmail.com](mailto:kappainnovationllc@gmail.com)
 
 ## Author
 
-Built by a solo engineer learning the full governance stack — writing docs, running tests, and evolving this artifact in public.
-→ [linkedin.com/in/houchia](https://linkedin.com/in/houchia)  
-→ [prompt-deploy.beehiiv.com](https://prompt-deploy.beehiiv.com)
+Built by [Hou Chia](https://linkedin.com/in/houchia) — a solo engineer designing governance scaffolds for AI-native teams.
 
-If this helps your team, I'd love to hear from you.
+See ongoing builds: [prompt-deploy.beehiiv.com](https://prompt-deploy.beehiiv.com)
 
-## Inspirations & Related Work
+## Inspirations
 
-This artifact draws influence from:
+This artifact draws on patterns from:
 
-- OpenTelemetry (for traceability)
-- Promptfoo (for eval pipelines)
-- Terraform (for declarative governance)
-- OWASP LLM Top 10 (for risk coverage)
+- **Promptfoo** – for prompt evaluation pipelines
+- **OpenTelemetry** – for traceable logs and cost observability
+- **Terraform** – for declarative, auditable workflows
+- **OWASP LLM Top 10** – for safety and risk mitigation
 
-## Final Notes
+---
 
-- Supports Promptfoo, LangChain, OpenAPI, Pinecone pipelines
+## Compliance & Extensibility
+
 - Compliant with OWASP LLM Top 10
-- Extendable to Claude, GPT, and open-source providers
+- Supports Promptfoo, LangChain, Pinecone, OpenAPI pipelines
+- Extendable to Claude, GPT, and open-source models
 
-For governance-grade prompt infrastructure — this is your starting scaffold.
-
-## Learn More
-
-- [Agent Governance Guide](docs/agent-governance.md)
-- [Developer Walkthrough](docs/dev-guide.md)
-- [PromptOps FAQ](docs/faqs.md)
+For governance-grade prompt infrastructure — this is your installable starting point.

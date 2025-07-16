@@ -1,4 +1,4 @@
-# From Version to Rollback: A Real PromptOps Lifecycle in Action
+# Prompt Lifecycle Walkthrough: From Authoring to Promotion
 
 This tutorial traces a real prompt through its full governance lifecycle using this repo’s scaffolds — from versioning and evaluation to HITL signoff, promotion, logging, and rollback.
 

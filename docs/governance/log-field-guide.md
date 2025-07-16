@@ -1,4 +1,4 @@
-# Prompt Execution Log Field Guide
+# Prompt Logging Guide: Structure Logs for Audit, Debugging, and Cost Analysis
 
 This document explains the meaning, format, and governance role of each field in the `prompt-log-schema.json` file.
 

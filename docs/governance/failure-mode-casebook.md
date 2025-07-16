@@ -1,0 +1,3 @@
+# Failure Mode Casebook: Real-World LLM Pitfalls and How to Catch Them
+
+Coming soon...
