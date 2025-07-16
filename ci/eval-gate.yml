@@ -1,19 +1,21 @@
 # Prompt Evaluation Gate CI
 # Blocks merges if evaluation results fail governance thresholds.
+# Enforces eval coverage, cost ceilings, and regression protection before promotion.
 
 name: Prompt Evaluation Gate
 
 on:
   pull_request:
     paths:
-      - "evals/**"
-      - "schemas/**"
-      - "prompts/**"
-      - "logs/**"
+      - "evals/**" # Changes to test configs or thresholds
+      - "schemas/**" # Prompt metadata or schema updates
+      - "prompts/**" # Actual prompt changes
+      - "logs/**" # Logging config, schema, or test outputs
 
 jobs:
   eval-gate:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -29,10 +31,15 @@ jobs:
 
       - name: Run Promptfoo Eval
         run: |
+          # Run evaluation using the config declared in evals/
+          # Results saved to disk for downstream policy checks
           promptfoo evaluate evals/eval-config.promptfoo.yml \
             --output json \
             --output-file evals/.ci-eval-results.json
 
       - name: Check Eval Results
         run: |
+          # Policy enforcement: fail the build if threshold not met
+          # Controlled via scripts/check_eval_thresholds.py
+          # Supports accuracy %, cost ceilings, and custom flags
           python scripts/check_eval_thresholds.py evals/.ci-eval-results.json
