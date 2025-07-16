@@ -27,3 +27,30 @@ Author: Hou Chia
 - Cost-Risk-ROI
 - Agent Orchestration
 - Prompt Safety (partial)
+
+## v0.2.0 – Documentation Refactor & Role-Based Indexing
+
+Date: 2025-07-16  
+Commit Hash: _To be added on merge_
+Author: Hou Chia
+
+### Improvements
+
+- Introduced structured `/docs/` system with role-based folders:
+  - `getting-started/`, `implementation/`, `governance/`, `licensing/`
+- Moved tutorial files into implementation docs (`promptops-lifecycle-trace.md`)
+- Created central index at `docs/index.md` with audience-specific navigation
+- Cleaned up `examples/` to avoid overlap with `/docs/` and reflect canonical usage
+- Updated `README.md` to reflect doc structure and roles
+- Aligned folder structure more clearly with governance pillars and licensing readiness
+
+### Vault Metadata
+
+- Vault Packaging bumped to: `v0.2.0`
+- Governance Pillars Clarified:
+  - PromptOps Lifecycle
+  - Evaluation Governance
+  - Cost-Risk-ROI
+  - Agent Governance
+  - Promotion + Rollback
+  - Audit Readiness

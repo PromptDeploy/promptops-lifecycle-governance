@@ -4,26 +4,26 @@ This repository provides a fully installable PromptOps governance scaffold for t
 
 ## 🏗️ Build Metadata
 
-| Field              | Value                                                                  |
-| ------------------ | ---------------------------------------------------------------------- |
-| Artifact ID        | `ART-20250710-001`                                                     |
-| Build Date         | `2025-07-10`                                                           |
-| Governance Pillars | PromptOps, Evaluation, Debugging, Cost/ROI, Agent Orchestration, Audit |
-| Repo Version Hash  | `d8c3b1f` _(use latest commit or tag)_                                 |
-| Vault Packaging    | `v0.1.0`                                                               |
-| Licensing Status   | ✅ MIT (internal use) · 🔒 Commercial use requires license             |
+| Field              | Value                                                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------- |
+| Artifact ID        | `ART-20250710-001`                                                                              |
+| Build Date         | `2025-07-10`                                                                                    |
+| Governance Pillars | PromptOps, Evaluation, Logging, Cost/ROI, Agent Governance, Promotion/Rollback, Audit Readiness |
+| Repo Version Hash  | `d8c3b1f` _(use latest commit or tag)_                                                          |
+| Vault Packaging    | `v0.2.0`                                                                                        |
+| Licensing Status   | ✅ MIT (internal use) · 🔒 Commercial use requires license                                      |
 
 ## Directory & File Overview
 
-| Path                 | Description                                                          | Related Usage Guide |
-| -------------------- | -------------------------------------------------------------------- | ------------------- |
-| `README.md`          | Overview of the repo’s purpose, installation, and usage instructions | –                   |
-| `LICENSE.txt`        | Repository license for distribution and reuse                        | –                   |
-| `Makefile`           | CLI commands for setup, evals, and test automation                   | –                   |
-| `requirements.txt`   | Python dependencies for scripts and evaluation tools                 | –                   |
-| `CHANGELOG.md`       | Version history of the artifact                                      | –                   |
-| `REPO_MANIFEST.md`   | This file: inventory of repo deliverables                            | –                   |
-| `LICENSE_PACKAGE.md` | Licensing terms for reuse, OEM, and integration                      | –                   |
+| Path                 | Description                                                                              | Related Usage Guide |
+| -------------------- | ---------------------------------------------------------------------------------------- | ------------------- |
+| `README.md`          | Audience-indexed documentation for governance, implementation, licensing, and onboarding | –                   |
+| `LICENSE.txt`        | Repository license for distribution and reuse                                            | –                   |
+| `Makefile`           | CLI commands for setup, evals, and test automation                                       | –                   |
+| `requirements.txt`   | Python dependencies for scripts and evaluation tools                                     | –                   |
+| `CHANGELOG.md`       | Version history of the artifact                                                          | –                   |
+| `REPO_MANIFEST.md`   | This file: inventory of repo deliverables                                                | –                   |
+| `LICENSE_PACKAGE.md` | Licensing terms for reuse, OEM, and integration                                          | –                   |
 
 ## Evaluation System (`/evals`)
 
@@ -85,7 +85,6 @@ This repository provides a fully installable PromptOps governance scaffold for t
 | File                          | Description                                        | Related Guide                                                               |
 | ----------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------- |
 | `eval-gating-in-ci.md`        | Guide for enforcing evals as a CI gating mechanism | [`ci-eval-gate.yml`](../examples/ci-eval-gate.yml)                          |
-| `ci-eval-gate.yml`            | Sample GitHub Action implementation of eval gating | [`eval-gating-in-ci.md`](../examples/eval-gating-in-ci.md)                  |
 | `agent-verification-chain.md` | Agent self-checking and verification patterns      | [`agent-orchestration-guide.md`](../workflows/agent-orchestration-guide.md) |
 | `owasp-llm-checklist.md`      | Applied security checklist using OWASP Top 10      | [`failure-modes-catalog.md`](../audit/failure-modes-catalog.md)             |
 | `rag-pipeline-lifecycle.md`   | Full lifecycle governance of a RAG pipeline        | [`pinecone.md`](../integration-guides/pinecone.md)                          |
@@ -98,3 +97,13 @@ This repository provides a fully installable PromptOps governance scaffold for t
 | `pinecone.md`           | Prompt governance within Pinecone/RAG workflows      | [`rag-pipeline-lifecycle.md`](../examples/rag-pipeline-lifecycle.md)     |
 | `openapi-agent.md`      | Handling safety and logging for OpenAPI-based agents | [`agent-verification-chain.md`](../examples/agent-verification-chain.md) |
 | `langchain-snippets.py` | Annotated snippets for prompt tracing in LangChain   | [`langchain.md`](langchain.md)                                           |
+
+## Documentation (`/docs`)
+
+| File or Folder          | Description                                    | Primary Audience              |
+| ----------------------- | ---------------------------------------------- | ----------------------------- |
+| `docs/index.md`         | Central doc index linking all guidance         | All users                     |
+| `docs/getting-started/` | Overview, what-is, FAQs                        | First-time readers, engineers |
+| `docs/implementation/`  | CI integration, dev guide                      | Infra teams, prompt engineers |
+| `docs/governance/`      | Governance maturity, logging, agent control    | AI policy teams               |
+| `docs/licensing/`       | Onboarding, diligence checklist, packaging map | Buyers, acquirers             |
