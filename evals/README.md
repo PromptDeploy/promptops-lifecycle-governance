@@ -17,7 +17,7 @@ The goal of PromptOps evaluation is to enforce:
 
 | File                                                                       | Description                                        |
 | -------------------------------------------------------------------------- | -------------------------------------------------- |
-| [`eval-config.promptfoo.yml`](./eval-config.promptfoo.yml)                 | Main Promptfoo config for CI test runs             |
+| [`evalsuite-core-config.yml`](./evalsuite-core-config.yml)                 | Main Promptfoo config for CI test runs             |
 | [`test-cases.json`](./test-cases.json)                                     | Core test suite used in CI and manual runs         |
 | [`test-cases.variant.json`](./test-cases.variant.json)                     | Optional variant prompt regression cases           |
 | [`cost-checks.yml`](./cost-checks.yml)                                     | Policy check for token/inference cost ceilings     |
@@ -31,7 +31,7 @@ The goal of PromptOps evaluation is to enforce:
 To run CI-aligned evaluations locally:
 
 ```bash
-promptfoo evaluate -c evals/eval-config.promptfoo.yml
+promptfoo evaluate -c evals/evalsuite-core-config.yml
 ```
 
 Or with `make` (if defined):

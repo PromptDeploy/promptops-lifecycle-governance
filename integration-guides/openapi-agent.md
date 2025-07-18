@@ -20,9 +20,9 @@ You’re deploying a support agent that:
 | Concern                | How to Handle It                           | PromptOps File                      |
 | ---------------------- | ------------------------------------------ | ----------------------------------- |
 | Prompt version control | Use versioned prompt metadata              | `schemas/prompt-version-schema.yml` |
-| Prompt audit log       | Track prompt ID, input, output, API result | `logs/prompt-log-schema.json`       |
+| Prompt audit log       | Track prompt ID, input, output, API result | `schemas/prompt-log-schema.json`    |
 | Cost visibility        | Token + API cost logging                   | `logs/cost-metrics-schema.yml`      |
-| Eval before deployment | Run Promptfoo tests                        | `evals/eval-config.promptfoo.yml`   |
+| Eval before deployment | Run Promptfoo tests                        | `evals/evalsuite-core-config.yml`   |
 | Rollback faulty logic  | Follow rollback procedure                  | `workflows/rollback-flow.md`        |
 
 ---
@@ -106,8 +106,8 @@ Use `evals/test-cases.json` to check for unsafe outputs, hallucinations, or rout
 ## 🧠 Related Files
 
 - [`schemas/prompt-version-schema.yml`](../schemas/prompt-version-schema.yml)
-- [`logs/prompt-log-schema.json`](../logs/prompt-log-schema.json)
-- [`evals/eval-config.promptfoo.yml`](../evals/eval-config.promptfoo.yml)
+- [`schemas/prompt-log-schema.json`](../schemas/prompt-log-schema.json)
+- [`evals/evalsuite-core-config.yml`](../evals/evalsuite-core-config.yml)
 - [`workflows/rollback-flow.md`](../workflows/rollback-flow.md)
 
 ---

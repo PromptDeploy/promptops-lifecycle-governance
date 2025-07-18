@@ -29,7 +29,7 @@ Designed for teams deploying verifier/planner/actor chains with tools like LangG
 1. **Prompt Versioning per Agent**
 
    - Each agent prompt tracked in `schemas/prompt-version-schema.yml`
-   - Shared state defined in `logs/prompt-log-schema.json`
+   - Shared state defined in `schemas/prompt-log-schema.json`
 
 2. **Eval Layer per Agent**
 

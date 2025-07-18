@@ -30,4 +30,4 @@ jobs:
         run: |
           jsonschema \
             --instance logs/log-sample.output.json \
-            --schema logs/prompt-log-schema.json
+            --schema schemas/prompt-log-schema.json

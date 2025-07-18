@@ -19,12 +19,12 @@ This document outlines the governance-compliant pipeline for promoting prompt ar
      - Accuracy / Hallucination tests
      - Cost and token checks
      - Safety/PII leakage checks
-   - Defined in `evals/eval-config.promptfoo.yml`, enforced via `ci/eval-gate.yml`.
+   - Defined in `evals/evalsuite-core-config.yml`, enforced via `ci/eval-gate.yml`.
 
 4. **Log Trace & Metadata**
 
    - Capture trace fields, inputs, outputs, model, context:
-     - `logs/prompt-log-schema.json`
+     - `schemas/prompt-log-schema.json`
      - `logs/log-sample.output.json`
 
 5. **Approval Gate**
@@ -59,7 +59,7 @@ This document outlines the governance-compliant pipeline for promoting prompt ar
 | --------------------------------- | --------------------------------------------------------------------- |
 | Prompt metadata attached          | `schemas/prompt-card.example.yml`                                     |
 | Version and hash assigned         | `schemas/prompt-version-schema.yml`                                   |
-| Eval tests passed                 | `evals/eval-config.promptfoo.yml`                                     |
+| Eval tests passed                 | `evals/evalsuite-core-config.yml`                                     |
 | Eval CI passed                    | `ci/eval-gate.yml`                                                    |
 | Trace log created                 | `logs/log-sample.output.json`                                         |
 | Approval granted or policy passed | `HITL_Approval_Template.md` or `workflows/policy-as-code-example.yml` |

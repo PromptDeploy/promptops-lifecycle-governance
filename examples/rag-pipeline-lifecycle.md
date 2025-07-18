@@ -19,8 +19,8 @@ You’re maintaining a production RAG system that uses:
 | Stage          | Action                                                                                                                                                                                               |
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Versioning** | RAG prompt is tracked in [`schemas/prompt-version-schema.yml`](../../schemas/prompt-version-schema.yml) and changes logged in [`schemas/prompt-change-log.yml`](../../schemas/prompt-change-log.yml) |
-| **Evaluation** | Prompt updates must pass evals defined in [`evals/eval-config.promptfoo.yml`](../../evals/eval-config.promptfoo.yml)                                                                                 |
-| **Logging**    | Each run is logged to [`logs/prompt-log-schema.json`](../../logs/prompt-log-schema.json) with output, tokens, retrieved docs                                                                         |
+| **Evaluation** | Prompt updates must pass evals defined in [`evals/evalsuite-core-config.yml`](../../evals/evalsuite-core-config.yml)                                                                                 |
+| **Logging**    | Each run is logged to [`schemas/prompt-log-schema.json`](../../schemas/prompt-log-schema.json) with output, tokens, retrieved docs                                                                   |
 | **Promotion**  | Prompt moves from dev → staging → prod via gated steps in [`workflows/promotion-pipeline.md`](../../workflows/promotion-pipeline.md)                                                                 |
 | **Rollback**   | Fallbacks are defined in [`workflows/rollback-flow.md`](../../workflows/rollback-flow.md) to handle context drift or hallucinations                                                                  |
 
@@ -45,7 +45,7 @@ RAG prompt edits are tested automatically:
 ```yaml
 # In ci/eval-gate.yml
 - name: Run Promptfoo on RAG prompt
-  run: python scripts/prompt-eval-runner.py --config evals/eval-config.promptfoo.yml
+  run: python scripts/prompt-eval-runner.py --config evals/evalsuite-core-config.yml
 ```
 
 ## Bonus: Prompt Example

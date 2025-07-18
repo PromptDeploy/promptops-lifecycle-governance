@@ -33,12 +33,12 @@ PromptTemplate.from_template(
 
 2. **Evaluation Gating (Optional)**
 
-Use Promptfoo config (`evals/eval-config.promptfoo.yml`) to validate prompt before merging.
+Use Promptfoo config (`evals/evalsuite-core-config.yml`) to validate prompt before merging.
 
 Run this locally or in CI:
 
 ```bash
-promptfoo test -c evals/eval-config.promptfoo.yml
+promptfoo test -c evals/evalsuite-core-config.yml
 ```
 
 3. **Logging Prompt Inputs + Outputs**
@@ -56,7 +56,7 @@ Hook into LangChain’s `callback_manager` to trace:
 from langchain.callbacks import StdOutCallbackHandler
 from promptops.logger import PromptLogger
 
-logger = PromptLogger(schema_path="logs/prompt-log-schema.json")
+logger = PromptLogger(schema_path="schemas/prompt-log-schema.json")
 handler = StdOutCallbackHandler()
 
 # Attach handler to chain
@@ -82,7 +82,7 @@ python scripts/prompt-eval-runner.py \
 ## Related Files
 
 - [`schemas/prompt-version-schema.yml`](../../schemas/prompt-version-schema.yml)
-- [`logs/prompt-log-schema.json`](../../logs/prompt-log-schema.json)
+- [`schemas/prompt-log-schema.json`](../../schemas/prompt-log-schema.json)
 - [`ci/eval-gate.yml`](../../ci/eval-gate.yml)
 - [`scripts/prompt-eval-runner.py`](../../scripts/prompt-eval-runner.py)
 

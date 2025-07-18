@@ -29,7 +29,7 @@ This repository provides a fully installable PromptOps governance scaffold for t
 
 | File                        | Description                                               | Related Guide                                                |
 | --------------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
-| `eval-config.promptfoo.yml` | Promptfoo configuration file for running evaluations      | [`eval-gating-in-ci.md`](../examples/eval-gating-in-ci.md)   |
+| `evalsuite-core-config.yml` | Promptfoo configuration file for running evaluations      | [`eval-gating-in-ci.md`](../examples/eval-gating-in-ci.md)   |
 | `test-cases.json`           | Dataset of prompt-input/output test cases                 | [`criteria-reference.md`](criteria-reference.md)             |
 | `cost-checks.yml`           | YAML rule definitions for token usage and cost thresholds | [`cost-metrics-schema.yml`](../logs/cost-metrics-schema.yml) |
 | `criteria-reference.md`     | Definitions of pass/fail criteria and scoring strategies  | [`eval-gating-in-ci.md`](../examples/eval-gating-in-ci.md)   |

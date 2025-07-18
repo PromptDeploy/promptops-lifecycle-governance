@@ -17,7 +17,7 @@ YELLOW = "\033[93m"
 RESET = "\033[0m"
 
 # Paths
-EVAL_CONFIG = Path("evals/eval-config.promptfoo.yml")
+EVAL_CONFIG = Path("evals/evalsuite-core-config.yml")
 TEST_CASES = Path("evals/test-cases.json")
 
 def run_promptfoo(strict=False):

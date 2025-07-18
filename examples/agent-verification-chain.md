@@ -28,7 +28,7 @@ The chain is fragile when:
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
 | **Versioning**    | [`schemas/prompt-version-schema.yml`](../../schemas/prompt-version-schema.yml), [`schemas/prompt-change-log.yml`](../../schemas/prompt-change-log.yml) | Ensures all agents use coordinated prompt versions         |
 | **Evaluation**    | [`evals/test-cases.json`](../../evals/test-cases.json), [`ci/eval-gate.yml`](../../ci/eval-gate.yml)                                                   | CI ensures verifier-agent accuracy doesn't drop            |
-| **Logging**       | [`logs/prompt-log-schema.json`](../../logs/prompt-log-schema.json), [`logs/log-sample.output.json`](../../logs/log-sample.output.json)                 | Tracks which agent ran what and with what result           |
+| **Logging**       | [`schemas/prompt-log-schema.json`](../../schemas/prompt-log-schema.json), [`logs/log-sample.output.json`](../../logs/log-sample.output.json)           | Tracks which agent ran what and with what result           |
 | **Rollback**      | [`workflows/rollback-flow.md`](../../workflows/rollback-flow.md)                                                                                       | Fallbacks defined if verifier disagrees or planner fails   |
 | **Orchestration** | [`workflows/agent-orchestration-guide.md`](../../workflows/agent-orchestration-guide.md)                                                               | Describes agent roles and prompt compatibility assumptions |
 

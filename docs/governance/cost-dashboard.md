@@ -45,9 +45,9 @@ Track token usage, cost risk thresholds, and monthly inference budget trends.
 
 ## Data Sources
 
-- `logs/prompt-log-schema.json`
+- `schemas/prompt-log-schema.json`
 - `logs/log-sample.output.json`
-- `evals/eval-config.promptfoo.yml`
+- `evals/evalsuite-core-config.yml`
 - `cost-checks.yml`
 
 ---

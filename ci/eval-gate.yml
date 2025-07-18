@@ -33,7 +33,7 @@ jobs:
         run: |
           # Run evaluation using the config declared in evals/
           # Results saved to disk for downstream policy checks
-          promptfoo evaluate evals/eval-config.promptfoo.yml \
+          promptfoo evaluate evals/evalsuite-core-config.yml \
             --output json \
             --output-file evals/.ci-eval-results.json
 

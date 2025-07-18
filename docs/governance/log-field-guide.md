@@ -48,4 +48,4 @@ Used by:
 ---
 
 > For a live example of a fully populated trace, see [`log-sample.output.json`](./log-sample.output.json)
-> For evaluation config mapping, see [`evals/eval-config.promptfoo.yml`](../evals/eval-config.promptfoo.yml)
+> For evaluation config mapping, see [`evals/evalsuite-core-config.yml`](../evals/evalsuite-core-config.yml)

@@ -50,7 +50,7 @@ Prompt evaluation is model-agnostic. We've tested with:
 
 - GPT-4 / Claude / Cohere / Ollama
 - Any API-returning model is supported
-- Add your provider config in `eval-config.promptfoo.yml`
+- Add your provider config in `evalsuite-core-config.yml`
 
 ## ❌ “No enforcement — devs can ignore the schema.”
 
@@ -90,7 +90,7 @@ Use LangSmith for UI traceability, PromptOps for lifecycle control.
 
 Logs are schema-bound JSON. Store locally, in S3, or pipe to OpenTelemetry-compatible systems.
 
-Schema: [`logs/prompt-log-schema.json`](../logs/prompt-log-schema.json)
+Schema: [`schemas/prompt-log-schema.json`](../schemas/prompt-log-schema.json)
 
 ## ❌ “Too much config. Can't we just hardcode prompts?”
 

@@ -16,7 +16,7 @@ You're updating a prompt used in your SaaS chatbot. You want to ensure:
 
 ## File Highlights
 
-- [`evals/eval-config.promptfoo.yml`](../../evals/eval-config.promptfoo.yml) — declares eval criteria
+- [`evals/evalsuite-core-config.yml`](../../evals/evalsuite-core-config.yml) — declares eval criteria
 - [`evals/test-cases.json`](../../evals/test-cases.json) — includes test inputs + expected completions
 - [`evals/cost-checks.yml`](../../evals/cost-checks.yml) — ensures token cost stays predictable
 - [`ci/eval-gate.yml`](../../ci/eval-gate.yml) — CI workflow that fails builds on eval regressions
@@ -51,7 +51,7 @@ See [`ci/eval-gate.yml`](../../ci/eval-gate.yml) for implementation.
 ```yaml
 # ci/eval-gate.yml (excerpt)
 - name: Run prompt evaluations
-  run: python scripts/prompt-eval-runner.py --config evals/eval-config.promptfoo.yml
+  run: python scripts/prompt-eval-runner.py --config evals/evalsuite-core-config.yml
 ```
 
 ---

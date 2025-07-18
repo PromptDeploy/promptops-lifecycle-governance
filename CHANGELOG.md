@@ -13,7 +13,7 @@ Author: Hou Chia
 ### Features
 
 - Prompt versioning schemas (`prompt-version-schema.yml`, `prompt-card.example.yml`)
-- Prompt evaluation pipeline with Promptfoo (`eval-config.promptfoo.yml`, `test-cases.json`)
+- Prompt evaluation pipeline with Promptfoo (`evalsuite-core-config.yml`, `test-cases.json`)
 - Cost telemetry logging + schema (`prompt-log-schema.json`, `cost-metrics-schema.yml`)
 - CI gating for eval regressions (`eval-gate.yml`, `check_eval_thresholds.py`)
 - Human-in-the-loop approval process (`HITL_Approval_Template.md`)

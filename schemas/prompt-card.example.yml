@@ -61,8 +61,8 @@ prompt_card:
   related_artifacts:
     - "./schemas/prompt-version-schema.yml"
     - "./evals/test-cases.json"
-    - "./evals/eval-config.promptfoo.yml"
-    - "./logs/prompt-log-schema.json"
+    - "./evals/evalsuite-core-config.yml"
+    - "./schemas/prompt-log-schema.json"
 
   notes: |
     This prompt is actively monitored via PromptOps lifecycle tools.
