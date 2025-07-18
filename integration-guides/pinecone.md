@@ -82,7 +82,7 @@ output = llm.run(template.format(context=context, question=question))
 }
 ```
 
-Log to JSONL file and validate against `logs/prompt-log-schema.json`.
+Log to JSONL file and validate against `schemas/prompt-log-schema.json`.
 
 ---
 
@@ -110,7 +110,7 @@ Use Promptfoo YAML config and CI eval gate (`ci/eval-gate.yml`).
 ## Related Files
 
 - [`schemas/prompt-version-schema.yml`](../schemas/prompt-version-schema.yml)
-- [`logs/prompt-log-schema.json`](../logs/prompt-log-schema.json)
+- [`schemas/prompt-log-schema.json`](../schemas/prompt-log-schema.json)
 - [`examples/rag-pipeline-lifecycle.md`](../examples/rag-pipeline-lifecycle.md)
 - [`evals/test-cases.json`](../evals/test-cases.json)
 - [`ci/eval-gate.yml`](../ci/eval-gate.yml)

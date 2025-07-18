@@ -2,7 +2,7 @@
 
 For teams using LangGraph, CrewAI, ReAct agents, or prompt chains — the PromptOps artifact supports **nested agent traces**.
 
-Use the `log-schema-v2.json` to capture:
+Use the `agenttrace-schema.json.json` to capture:
 
 - Step-by-step tool usage (e.g. search, lookup, summarize)
 - Agent reasoning at each step
@@ -11,7 +11,7 @@ Use the `log-schema-v2.json` to capture:
 
 ## Files
 
-- `schemas/log-schema-v2.json` – JSON Schema for nested agent logs
+- `schemas/agenttrace-schema.json.json` – JSON Schema for nested agent logs
 - `logs/agent-log.example.json` – Valid example using Claude-3 with 2 steps
 
 ## Use Case

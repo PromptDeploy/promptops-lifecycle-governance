@@ -34,7 +34,7 @@ You should initiate a rollback if any of the following occur post-promotion:
 
    - Re-run evals to confirm integrity of restored prompt.
    - Use:
-     - `evals/eval-config.promptfoo.yml`
+     - `evals/evalsuite-core-config.yml`
      - `ci/eval-gate.yml`
 
 4. **Log the Rollback**
@@ -58,7 +58,7 @@ You should initiate a rollback if any of the following occur post-promotion:
 | Task                    | File Reference                      |
 | ----------------------- | ----------------------------------- |
 | Last good version found | `schemas/prompt-version-schema.yml` |
-| Eval re-run successful  | `evals/eval-config.promptfoo.yml`   |
+| Eval re-run successful  | `evals/evalsuite-core-config.yml`   |
 | CI passed               | `ci/eval-gate.yml`                  |
 | Rollback logged         | `audit/artifact-audit-log.md`       |
 | Change log updated      | `schemas/prompt-change-log.yml`     |

@@ -42,7 +42,7 @@ make test
 | Eval Maintainer     | Owns test cases and thresholds           | `evals/test-cases.json`, `eval-config.*.yml` |
 | CI Integrator       | Hooks eval gate into GitHub Actions      | `.github/workflows/ci-prod-block.yml`        |
 | Approver (optional) | Signs off manually or via policy-as-code | `policy-as-code-example.yml`                 |
-| Logging Owner       | Validates log format and drift checks    | `logs/prompt-log-schema.json`                |
+| Logging Owner       | Validates log format and drift checks    | `schemas/prompt-log-schema.json`             |
 
 ---
 
@@ -62,7 +62,7 @@ make test
 
 4. **Start Cost & Drift Logging**
 
-   - Activate `log-schema-v2.json` and monitor changes post-deploy
+   - Activate `agenttrace-schema.json.json` and monitor changes post-deploy
 
 5. **Promote and Audit**
    - Use `promotion-pipeline.md` to tag and release new prompt versions

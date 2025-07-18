@@ -16,7 +16,7 @@ paths:
   prompt_versions:
     prod: "schemas/prompt-version.prod-approved.yml"
   evals:
-    base: "evals/eval-config.promptfoo.yml"
+    base: "evals/evalsuite-core-config.yml"
     variant: "evals/eval-config.variant.promptfoo.yml"
     compare: "evals/eval-config.compare.promptfoo.yml"
     rag: "evals/eval-config.rag.promptfoo.yml"
@@ -25,7 +25,7 @@ paths:
     variants: "evals/test-cases.variant.json"
     rag: "evals/test-cases.rag.json"
   logs:
-    schema: "logs/prompt-log-schema.json"
+    schema: "schemas/prompt-log-schema.json"
     sample: "logs/log-sample.output.json"
   reports:
     rag_eval: "evals/eval-report.rag.md"

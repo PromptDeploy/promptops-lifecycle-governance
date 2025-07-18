@@ -1,12 +1,11 @@
-
 # 📦 PromptOps Lifecycle Governance Makefile
 
 # Core evaluations
 eval:
-	promptfoo test --config evals/eval-config.promptfoo.yml
+	npx promptfoo test --config evals/evalsuite-core-config.yml
 
 test:
-	promptfoo evaluate --config evals/eval-config.promptfoo.yml --output evals/.ci-eval-results.json
+	npx promptfoo evaluate --config evals/evalsuite-core-config.yml --output evals/.ci-eval-results.json
 	python scripts/prompt-eval-runner.py --strict
 
 strict-eval:
@@ -15,17 +14,17 @@ strict-eval:
 logs:
 	cat logs/log-sample.output.json | jq .
 
-# New: Dashboard YAML sync
+# Dashboard YAML sync
 dashboard:
 	python scripts/generate-dashboard-card.py
 
-# New: Prompt injection test runner
+# Prompt injection test runner
 inject-test:
-	promptfoo test --config evals/eval-config.promptfoo.yml --tests evals/prompt-injection-tests.json
+	npx promptfoo test --config evals/evalsuite-core-config.yml --tests evals/prompt-injection-tests.json
 
-# New: RAG fallback test
+# RAG fallback test
 rag-eval:
-	promptfoo test --config evals/eval-config.rag.promptfoo.yml
+	npx promptfoo test --config evals/eval-config.rag.promptfoo.yml
 
 # Optional: YAML/JSON formatting (requires jq/yq/pyyaml pre-installed)
 format:

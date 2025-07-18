@@ -4,7 +4,7 @@ PromptOps introduces nested agent logging, making it possible to govern and debu
 
 This doc shows how to:
 
-- Structure agent logs using `log-schema-v2.json`
+- Structure agent logs using `agenttrace-schema.json.json`
 - Capture reasoning, tool use, and cost per step
 - Use logs for auditing, cost control, and rollback
 
@@ -16,12 +16,12 @@ This guide complements the main [README](../README.md) and [dev guide](./dev-gui
 
 ## Required Files
 
-| File                          | Purpose                                    |
-| ----------------------------- | ------------------------------------------ |
-| `schemas/log-schema-v2.json`  | Validates nested logs                      |
-| `logs/agent-log.example.json` | Example log from Claude agent              |
-| `ci/eval-gate.yml`            | Optional: Add approval enforcement logic   |
-| `prompt-version-schema.yml`   | Link logs to versions + approval decisions |
+| File                                  | Purpose                                    |
+| ------------------------------------- | ------------------------------------------ |
+| `schemas/agenttrace-schema.json.json` | Validates nested logs                      |
+| `logs/agent-log.example.json`         | Example log from Claude agent              |
+| `ci/eval-gate.yml`                    | Optional: Add approval enforcement logic   |
+| `prompt-version-schema.yml`           | Link logs to versions + approval decisions |
 
 ---
 
@@ -73,6 +73,6 @@ rollback_conditions:
 
 ## Resources
 
-- [log-schema-v2.json](../schemas/log-schema-v2.json)
+- [agenttrace-schema.json.json](../schemas/agenttrace-schema.json.json)
 - [agent-log.example.json](../logs/agent-log.example.json)
 - [PromptOps Objection Handling](../PROMPTOPS_OBJECTION_HANDLING.md)

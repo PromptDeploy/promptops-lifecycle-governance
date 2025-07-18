@@ -19,11 +19,11 @@ Use it for:
 - [ ] Prompt cards structured (`schemas/prompt-card.example.yml`)
 - [ ] Prompt version schema applied (`schemas/prompt-version-schema.yml`)
 - [ ] Changelog format in use (`schemas/prompt-change-log.yml`)
-- [ ] Prompt eval config loaded (`evals/eval-config.promptfoo.yml`)
+- [ ] Prompt eval config loaded (`evals/evalsuite-core-config.yml`)
 
 ## Evaluation & CI/CD Gating
 
-- [ ] Thresholds defined (`eval-config.promptfoo.yml`)
+- [ ] Thresholds defined (`evalsuite-core-config.yml`)
 - [ ] Eval pass/fail logic enforced (`ci/eval-gate.yml`)
 - [ ] GitHub Action blocking unapproved prompt merges
 - [ ] Prompt regression test case defined (`tests/prompt-regression.test.json`)
@@ -40,7 +40,7 @@ Use it for:
 
 ## Logging & Auditability
 
-- [ ] Logs structured to match schema (`log-schema-v2.json`)
+- [ ] Logs structured to match schema (`agenttrace-schema.json.json`)
 - [ ] Cost and drift monitoring activated (`logs/`, `cost-checks.yml`)
 - [ ] Agent logging traced per step (`agent-log.example.json`)
 

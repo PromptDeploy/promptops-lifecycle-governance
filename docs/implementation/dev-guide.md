@@ -44,7 +44,7 @@ make strict-eval
 ### Run Prompt Injection Tests
 
 ```bash
-promptfoo test --config evals/eval-config.promptfoo.yml --tests evals/prompt-injection-tests.json
+promptfoo test --config evals/evalsuite-core-config.yml --tests evals/prompt-injection-tests.json
 ```
 
 ---
@@ -82,7 +82,7 @@ promptfoo test --config evals/eval-config.rag.promptfoo.yml
 
 | Purpose                | Config File                               |
 | ---------------------- | ----------------------------------------- |
-| Standard CI Eval       | `evals/eval-config.promptfoo.yml`         |
+| Standard CI Eval       | `evals/evalsuite-core-config.yml`         |
 | Fuzzed Prompt Variants | `evals/eval-config.variant.promptfoo.yml` |
 | RAG fallback behavior  | `evals/eval-config.rag.promptfoo.yml`     |
 | Claude vs GPT compare  | `evals/eval-config.compare.promptfoo.yml` |
@@ -116,7 +116,7 @@ workflows/HITL_Approval_Template.md
 - All logs conform to:
 
   ```
-  logs/prompt-log-schema.json
+  schemas/prompt-log-schema.json
   ```
 
 - Sample outputs:

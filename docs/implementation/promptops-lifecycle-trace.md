@@ -27,7 +27,7 @@ Schema enforced by: [`schemas/prompt-version-schema.yml`](../schemas/prompt-vers
 
 Edit or duplicate from:
 
-- [`evals/eval-config.promptfoo.yml`](../evals/eval-config.promptfoo.yml)
+- [`evals/evalsuite-core-config.yml`](../evals/evalsuite-core-config.yml)
 - [`evals/test-cases.json`](../evals/test-cases.json)
 
 Include cases for success/failure and edge-case behavior.
@@ -50,13 +50,13 @@ Include cases for success/failure and edge-case behavior.
 ```bash
 make eval
 # or
-promptfoo eval -c evals/eval-config.promptfoo.yml
+promptfoo eval -c evals/evalsuite-core-config.yml
 ```
 
 Log results locally or into:
 
 - [`logs/eval-report.rag.md`](../evals/eval-report.rag.md)
-- [`logs/prompt-log-schema.json`](../logs/prompt-log-schema.json)
+- [`schemas/prompt-log-schema.json`](../schemas/prompt-log-schema.json)
 
 Gate enforced in CI via: [`ci/eval-gate.yml`](../ci/eval-gate.yml)
 
@@ -95,7 +95,7 @@ promotion:
 
 Confirm structured logs match schema:
 
-- [`logs/prompt-log-schema.json`](../logs/prompt-log-schema.json)
+- [`schemas/prompt-log-schema.json`](../schemas/prompt-log-schema.json)
 
 Optional: Add logs from `logs/log-sample.output.json` to real `agent-log.example.json`.
 
@@ -135,7 +135,7 @@ Re-run `promptfoo eval` on rollback version before re-promotion.
 | Phase      | Artifact / Action                                       |
 | ---------- | ------------------------------------------------------- |
 | Versioning | `prompt-card.yml`, `prompt-version-schema.yml`          |
-| Evaluation | `eval-config.promptfoo.yml`, `test-cases.json`, CI gate |
+| Evaluation | `evalsuite-core-config.yml`, `test-cases.json`, CI gate |
 | HITL       | `HITL_Approval_Template.md`                             |
 | Promotion  | `promotion-pipeline.md`, env tags, hashes               |
 | Logging    | `prompt-log-schema.json`, sample outputs                |
