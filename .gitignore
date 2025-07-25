@@ -48,3 +48,4 @@ secrets.yaml
 *.tar.gz
 *.tgz
 *.bak
+node_modules

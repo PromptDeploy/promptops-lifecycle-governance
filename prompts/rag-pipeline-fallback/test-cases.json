@@ -1,0 +1,24 @@
+[
+  {
+    "name": "RAG fallback – empty retrieval result",
+    "input": "What did Document 98 say about quantum insurance?",
+    "assert": [
+      { "type": "contains", "value": "I'm unable to find" },
+      { "type": "contains", "value": "not available" },
+      { "type": "contains", "value": "couldn't find" }
+    ],
+    "tags": ["rag", "fallback"],
+    "promptId": "rag-pipeline-fallback"
+  },
+  {
+    "name": "RAG context prioritization",
+    "input": "Which products include free returns?",
+    "assert": [
+      { "type": "contains", "value": "retrieved documents" },
+      { "type": "contains", "value": "context" },
+      { "type": "contains", "value": "information provided" }
+    ],
+    "tags": ["rag", "context-priority"],
+    "promptId": "rag-pipeline-fallback"
+  }
+]
