@@ -1,0 +1,146 @@
+{
+  "evalId": "eval-gE4-2025-07-25T18:22:29",
+  "results": {
+    "version": 3,
+    "timestamp": "2025-07-25T18:22:29.134Z",
+    "prompts": [
+      {
+        "raw": "../../prompts/*/prompt.txt",
+        "label": "../../prompts/*/prompt.txt",
+        "id": "fefc5abbbd8d84c98b738989031106529b50b04f88e2dfc0b063c31546a47d35",
+        "provider": "openai:gpt-4",
+        "metrics": {
+          "score": 0,
+          "testPassCount": 0,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 0,
+          "assertFailCount": 0,
+          "totalLatencyMs": 0,
+          "tokenUsage": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "cost": 0
+        }
+      },
+      {
+        "raw": "../../prompts/*/prompt.txt",
+        "label": "../../prompts/*/prompt.txt",
+        "id": "fefc5abbbd8d84c98b738989031106529b50b04f88e2dfc0b063c31546a47d35",
+        "provider": "anthropic:messages:claude-sonnet-4-20250514",
+        "metrics": {
+          "score": 0,
+          "testPassCount": 0,
+          "testFailCount": 0,
+          "testErrorCount": 0,
+          "assertPassCount": 0,
+          "assertFailCount": 0,
+          "totalLatencyMs": 0,
+          "tokenUsage": {
+            "total": 0,
+            "prompt": 0,
+            "completion": 0,
+            "cached": 0,
+            "numRequests": 0,
+            "completionDetails": {
+              "reasoning": 0,
+              "acceptedPrediction": 0,
+              "rejectedPrediction": 0
+            },
+            "assertions": {
+              "total": 0,
+              "prompt": 0,
+              "completion": 0,
+              "cached": 0
+            }
+          },
+          "namedScores": {},
+          "namedScoresCount": {},
+          "cost": 0
+        }
+      }
+    ],
+    "results": [],
+    "stats": {
+      "successes": 0,
+      "failures": 0,
+      "errors": 0,
+      "tokenUsage": {
+        "cached": 0,
+        "completion": 0,
+        "prompt": 0,
+        "total": 0,
+        "numRequests": 0,
+        "completionDetails": {
+          "reasoning": 0,
+          "acceptedPrediction": 0,
+          "rejectedPrediction": 0
+        },
+        "assertions": {
+          "total": 0,
+          "prompt": 0,
+          "completion": 0,
+          "cached": 0
+        }
+      }
+    }
+  },
+  "config": {
+    "tags": {},
+    "description": "Evaluation config for RAG and support-agent prompts. Includes hallucination, faithfulness, and cost control metrics.\n",
+    "prompts": [
+      "../../prompts/*/prompt.txt"
+    ],
+    "providers": [
+      {
+        "id": "openai:gpt-4",
+        "config": {
+          "temperature": 0,
+          "max_tokens": 512
+        }
+      },
+      {
+        "id": "anthropic:messages:claude-sonnet-4-20250514",
+        "config": {
+          "temperature": 0,
+          "max_tokens": 512
+        }
+      }
+    ],
+    "tests": [
+      "./test-cases.json"
+    ],
+    "scenarios": [],
+    "env": {},
+    "sharing": true,
+    "outputPath": [
+      "evals/.ci-eval-results.json"
+    ],
+    "extensions": [],
+    "metadata": {},
+    "redteam": {
+      "plugins": [
+        "./cost-checks.yml"
+      ],
+      "strategies": []
+    }
+  },
+  "shareableUrl": null
+}

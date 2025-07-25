@@ -87,21 +87,47 @@ This governance scaffold is designed for:
 ## Quickstart
 
 ```bash
+# 1. Clone and install
 git clone https://github.com/yourname/promptops-lifecycle-governance.git
 cd promptops-lifecycle-governance
 python3 -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 
-make test  # Run governance eval with CI thresholds
+
+# 2. Run all governance tests (strict mode)
+make test
 ```
 
-Or run standalone:
+Or run it manually:
 
 ```bash
-python scripts/prompt-eval-runner.py         # Preview mode
-python scripts/prompt-eval-runner.py --strict  # Enforces CI thresholds and blocks failing prompts
+# Preview mode (soft check)
+python scripts/prompt-eval-runner.py
+
+# Strict mode (enforces eval thresholds and blocks failing prompts)
+python scripts/prompt-eval-runner.py --strict
 
 ```
+
+You’ll see something like this:
+
+```
+[FAIL] Expected output to include: "I don’t have enough information"
+Got: "Sure! Our refund policy grants 60 days for premium users."
+
+CI Status: ❌ Prompt failed hallucination guard. Do not ship.
+```
+
+### What Just Happened?
+
+You ran an evaluation suite that:
+
+- Loaded a refund-related test from `evals/`
+- Used promptfoo to simulate model responses
+- Applied assertions (like `includes`, `not_includes`, or `wordCount`)
+  Flagged the hallucination via `prompt-eval-runner.py --strict`
+
+This is how you build CI pipelines for prompts — no more manual spot checks or risky regressions.
 
 ## Walkthroughs & Docs
 

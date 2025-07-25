@@ -1,15 +1,18 @@
 # 📦 PromptOps Lifecycle Governance Makefile
 
-# Core evaluations
+# Core evaluation pipeline (requires .env + promptfoo + API keys)
 eval:
-	npx promptfoo test --config evals/evalsuite-core-config.yml
+	npm run eval
 
 test:
-	npx promptfoo evaluate --config evals/evalsuite-core-config.yml --output evals/.ci-eval-results.json
-	python scripts/prompt-eval-runner.py --strict
+	npm run test
+
+# make eval-prompt prompt=support-agent-v1
+eval-prompt:
+	npm run test:prompt -- $(prompt)
 
 strict-eval:
-	python scripts/prompt-eval-runner.py --strict
+	npm run strict-eval
 
 logs:
 	cat logs/log-sample.output.json | jq .
@@ -32,6 +35,5 @@ format:
 	yq -i evals/*.yml
 	jq . logs/*.json > /dev/null
 
-# Optional: schema linting or test validator
-lint:
-	echo "TODO: Add schema linting if needed"
+lint-prompts:
+	npx tsx scripts/lint-prompts.ts

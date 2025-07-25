@@ -40,6 +40,6 @@ jobs:
       - name: Check Eval Results
         run: |
           # Policy enforcement: fail the build if threshold not met
-          # Controlled via scripts/check_eval_thresholds.py
+          # Controlled via scripts/check-eval-thresholds.py
           # Supports accuracy %, cost ceilings, and custom flags
-          python scripts/check_eval_thresholds.py evals/.ci-eval-results.json
+          python scripts/check-eval-thresholds.py evals/.ci-eval-results.json
