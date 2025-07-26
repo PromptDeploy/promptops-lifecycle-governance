@@ -24,8 +24,6 @@ Think of it as **“Terraform for Prompts”** — declarative, reproducible, an
 
 ## ❌ Before vs ✅ After Installing PromptOps Lifecycle Governance
 
-<!-- Mermaid diagram: prompt governance lifecycle -->
-
 ```mermaid
 flowchart TD
     subgraph After
@@ -70,24 +68,23 @@ This governance scaffold is designed for:
 
 ## What’s Inside
 
-| Layer                 | Description                                                      |
-| --------------------- | ---------------------------------------------------------------- |
-| `schemas/`            | Prompt version schema, changelogs, canonical metadata            |
-| `evals/`              | Promptfoo configs, test cases (core, variants, RAG, comparison)  |
-| `logs/`               | Structured logging, cost metrics schema, observability formats   |
-| `ci/`                 | Eval gates, production enforcement rules                         |
-| `workflows/`          | Promotion pipelines, rollback flow, HITL approval templates      |
-| `examples/`           | OWASP mapping, agent verification chains, lifecycle walkthroughs |
-| `integration-guides/` | LangChain, OpenAPI, Pinecone integration patterns                |
-| `audit/`              | Failure mode catalog, compliance mapping, audit trail templates  |
-| `scripts/`            | CLI runners, prompt card dashboard generators                    |
-| `tests/`              | Regression scenarios for various prompt behaviors                |
-| `docs/`               | Full walkthroughs and role-specific documentation                |
+| Layer        | Description                                                     |
+| ------------ | --------------------------------------------------------------- |
+| `schemas/`   | Prompt version schema, changelogs, canonical metadata           |
+| `evals/`     | Promptfoo configs, test cases (core, variants, RAG, comparison) |
+| `logs/`      | Structured logging, cost metrics schema, observability formats  |
+| `ci/`        | Eval gates, production enforcement rules                        |
+| `workflows/` | Promotion pipelines, rollback flow, HITL approval templates     |
+| `docs/`      | Full walkthroughs, integration guides, governance references    |
+| `audit/`     | Failure mode catalog, compliance mapping, audit trail templates |
+| `scripts/`   | CLI runners, prompt card dashboard generators                   |
+| `tests/`     | Regression scenarios for various prompt behaviors               |
+| `prompts/`   | Installable prompt cards with eval suites + changelogs          |
 
 ## Quickstart
 
 ```bash
-# 1. Clone and install dependencies
+# Clone and install dependencies
 git clone https://github.com/yourname/promptops-lifecycle-governance.git
 cd promptops-lifecycle-governance
 
@@ -96,6 +93,9 @@ python3 -m venv venv && source venv/bin/activate
 
 # Install all required dependencies (Node + Python)
 make setup
+
+# Set up your `.env` with required API keys
+cp .env.example .env
 ```
 
 Or run it manually:
@@ -106,28 +106,7 @@ python scripts/prompt-eval-runner.py
 
 # Strict mode (enforces eval thresholds and blocks failing prompts)
 python scripts/prompt-eval-runner.py --strict
-
 ```
-
-You’ll see something like this:
-
-```
-[FAIL] Expected output to include: "I don’t have enough information"
-Got: "Sure! Our refund policy grants 60 days for premium users."
-
-CI Status: ❌ Prompt failed hallucination guard. Do not ship.
-```
-
-### What Just Happened?
-
-You ran an evaluation suite that:
-
-- Loaded a refund-related test from `evals/`
-- Used promptfoo to simulate model responses
-- Applied assertions (like `includes`, `not_includes`, or `wordCount`)
-- Flagged the hallucination via `prompt-eval-runner.py --strict`
-
-This is how you build CI pipelines for prompts — no more manual spot checks or risky regressions.
 
 ## Walkthroughs & Docs
 
@@ -135,6 +114,7 @@ This is how you build CI pipelines for prompts — no more manual spot checks or
 - [PromptOps FAQ](docs/getting-started/faqs.md)
 - [Developer Integration Guide](docs/implementation/dev-guide.md)
 - [Agent Governance Guide](docs/governance/agent-governance.md)
+- [Integration Guides](docs/implementation/integrations/) _(LangChain, Pinecone, OpenAPI)_
 - [Full Docs Index →](docs/index.md)
 
 ---
@@ -173,7 +153,6 @@ Contact: [kappainnovationllc@gmail.com](mailto:kappainnovationllc@gmail.com)
 ## Author
 
 Built by [Hou Chia](https://linkedin.com/in/houchia) — a solo engineer designing governance scaffolds for AI-native teams.
-
 See ongoing builds: [prompt-deploy.beehiiv.com](https://prompt-deploy.beehiiv.com)
 
 ## Inspirations
